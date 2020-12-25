@@ -34,4 +34,26 @@
         android:name="com.example.motelroom.ui.main.RegisterFragment"
         android:label="@string/menu_register"
         tools:layout="@layout/register_fragment" />
+    <fragment
+        android:id="@+id/nav_nha_o_ghep"
+        android:name="com.example.motelroom.ui.main.OGhepFragment"
+        android:label="Phòng ở ghép"
+        tools:layout="@layout/o_ghep_fragment" />
+    <fragment
+        android:id="@+id/nav_phong_tro_cho_thue"
+        android:name="com.example.motelroom.ui.main.PhongTroFragment"
+        android:label="Phòng trọ"
+        tools:layout="@layout/phong_tro_fragment" />
+    <fragment
+        android:id="@+id/nav_chung_cu"
+        android:name="com.example.motelroom.ui.main.ChungCuFragment"
+        android:label="Chung cư"
+        tools:layout="@layout/chung_cu_fragment" />
+    <fragment
+        android:id="@+id/nav_nha_nguyen_can"
+        android:name="com.example.motelroom.ui.main.NhaNguyenCanFragment"
+        android:label="Nhà nguyên căn"
+        tools:layout="@layout/nha_nguyen_can_fragment" />
+
+
 </navigation>
