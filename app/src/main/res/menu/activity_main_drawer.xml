@@ -6,23 +6,39 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_baseline_add_to_home_screen_24"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
-        <item
             android:id="@+id/nav_login"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_baseline_login_24"
             android:title="@string/menu_login" />
         <item
             android:id="@+id/nav_register"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_baseline_assignment_24"
             android:title="@string/menu_register" />
+        <item
+            android:id="@+id/nav_phong_tro_cho_thue"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="@string/menu_phongtrochothue" />
+        <item
+            android:id="@+id/nav_nha_o_ghep"
+            android:icon="@drawable/ic_baseline_house_siding_24"
+            android:title="@string/menu_nhaoghep" />
+        <item
+            android:id="@+id/nav_nha_nguyen_can"
+            android:icon="@drawable/ic_baseline_house_24"
+            android:title="@string/menu_nhanghuyencan" />
+        <item
+            android:id="@+id/nav_chung_cu"
+            android:icon="@drawable/ic_baseline_home_work_24"
+            android:title="@string/menu_chungcu" />
+<!--        <item-->
+<!--            android:id="@+id/nav_gallery"-->
+<!--            android:icon="@drawable/ic_menu_gallery"-->
+<!--            android:title="@string/menu_gallery" />-->
+<!--        <item-->
+<!--            android:id="@+id/nav_slideshow"-->
+<!--            android:icon="@drawable/ic_menu_slideshow"-->
+<!--            android:title="@string/menu_slideshow" />-->
     </group>
 </menu>
