@@ -1,5 +1,6 @@
 package com.example.motelroom.ui.main;
 
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.app.ProgressDialog;
@@ -73,7 +74,9 @@ public class LoginFragment extends Fragment {
         dialog = new ProgressDialog(getContext());
         dialog.setCancelable(false);
         txtRegister.setOnClickListener(v->{
-//            getActivity().getSupportFragmentManager().beginTransaction().replace()
+            Fragment RegisterFragment = new RegisterFragment();
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, RegisterFragment).commit();
         });
         btnLogin.setOnClickListener(v->{
             if(validate()){
