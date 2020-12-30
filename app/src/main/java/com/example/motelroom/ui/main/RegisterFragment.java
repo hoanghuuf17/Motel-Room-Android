@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.motelroom.Constant;
 import com.example.motelroom.R;
+import com.example.motelroom.UserInfoActivity;
+import com.example.motelroom.ui.home.HomeFragment;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -45,7 +48,7 @@ public class RegisterFragment extends Fragment {
     private RegisterViewModel mViewModel;
     private Button button_dangky;
     private TextView txtdangnhap;
-    private EditText edtTaikhoan, edtMatkhau, edtRematkhau, edtEmail, edtTenhienthi;
+    private EditText edtTaikhoan, edtMatkhau, edtRematkhau, edtEmail;
     private View view;
     private ProgressDialog dialog;
 
@@ -74,7 +77,7 @@ public class RegisterFragment extends Fragment {
         edtTaikhoan = view.findViewById(R.id.edt_taikhoan);
         edtMatkhau = view.findViewById(R.id.edt_matkhau);
         edtRematkhau = view.findViewById(R.id.edt_rematkhau);
-        edtTenhienthi = view.findViewById(R.id.edt_tenhienthi);
+//        edtTenhienthi = view.findViewById(R.id.edt_tenhienthi);
         button_dangky = view.findViewById(R.id.btn_dangky);
         txtdangnhap = view.findViewById(R.id.txt_dangnhap);
         dialog = new ProgressDialog(getContext());
@@ -158,24 +161,6 @@ public class RegisterFragment extends Fragment {
 
             }
         });
-        edtTenhienthi.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (edtTenhienthi.getText().toString().isEmpty()) {
-                    edtTenhienthi.setError("Nhập tên hiển thị");
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
         edtTaikhoan.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -194,8 +179,6 @@ public class RegisterFragment extends Fragment {
 
             }
         });
-
-
     }
 
     private boolean validate() {
@@ -213,10 +196,6 @@ public class RegisterFragment extends Fragment {
         }
         if (!edtRematkhau.getText().toString().equals(edtMatkhau.getText().toString())) {
             edtRematkhau.setError("Mật khẩu không khớp");
-            return false;
-        }
-        if (edtTenhienthi.getText().toString().isEmpty()) {
-            edtTenhienthi.setError("Nhập tên hiển thị");
             return false;
         }
 
@@ -239,9 +218,12 @@ public class RegisterFragment extends Fragment {
                     editor.putString("name", user.getString("name"));
                     editor.putString("email", user.getString("email"));
                     editor.putString("avatar", user.getString("avatar"));
-                    editor.apply();
+                    editor.putBoolean("isLoggedIn", true);
+                    editor.commit();
                     //if success
-                    Toast.makeText(getContext(), "register Success", Toast.LENGTH_SHORT).show();
+                    //move
+                    startActivity(new Intent(getActivity(), UserInfoActivity.class));
+                    Toast.makeText(getContext(), "register Success, next step", Toast.LENGTH_SHORT).show();
                 }
             }catch (JSONException e){
                 e.printStackTrace();
@@ -258,7 +240,6 @@ public class RegisterFragment extends Fragment {
                 HashMap<String, String> map = new HashMap<>();
                 map.put("txtmail", edtEmail.getText().toString().trim());
                 map.put("txtuser", edtTaikhoan.getText().toString().trim());
-                map.put("txtname", edtTenhienthi.getText().toString().trim());
                 map.put("txtpass", edtMatkhau.getText().toString().trim());
                 return map;
             }
