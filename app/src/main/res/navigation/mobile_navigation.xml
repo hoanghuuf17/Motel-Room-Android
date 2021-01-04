@@ -54,6 +54,4 @@
         android:name="com.example.motelroom.ui.main.NhaNguyenCanFragment"
         android:label="Nhà nguyên căn"
         tools:layout="@layout/nha_nguyen_can_fragment" />
-
-
 </navigation>

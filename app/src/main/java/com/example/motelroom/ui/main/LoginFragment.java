@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,11 +31,13 @@ import com.android.volley.toolbox.Volley;
 import com.example.motelroom.Constant;
 import com.example.motelroom.MainActivity;
 import com.example.motelroom.R;
+import com.example.motelroom.ui.home.HomeFragment;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -138,6 +142,7 @@ public class LoginFragment extends Fragment {
 
     private void login(){
         dialog.setMessage("Logging in");
+        dialog.setMessage("Logging in");
         dialog.show();
         StringRequest request = new StringRequest(Request.Method.POST, Constant.LOGIN, response -> {
             //get response if connection success
@@ -152,8 +157,15 @@ public class LoginFragment extends Fragment {
                     editor.putString("name", user.getString("name"));
                     editor.putString("email", user.getString("email"));
                     editor.putString("avatar", user.getString("avatar"));
+                    editor.putBoolean("isLoggedIn", true);
                     editor.apply();
                     //if success
+
+                    //move
+                    Fragment homeFragment = new HomeFragment();
+                    FragmentManager fragmentManager = getFragmentManager();
+                    fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, homeFragment).commit();
+
                     Toast.makeText(getContext(), "Login Success", Toast.LENGTH_SHORT).show();
                 }
             }catch (JSONException e){
@@ -169,7 +181,7 @@ public class LoginFragment extends Fragment {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 HashMap<String, String> map = new HashMap<>();
-                map.put("txtemail", txtEmail.getText().toString().trim());
+                map.put("txtmail", txtEmail.getText().toString().trim());
                 map.put("txtpass", txtPassword.getText().toString().trim());
                 return map;
             }
