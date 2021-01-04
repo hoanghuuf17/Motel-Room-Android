@@ -2,6 +2,9 @@ package com.example.motelroom;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -15,12 +18,15 @@ import android.util.Base64;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.motelroom.ui.home.HomeFragment;
+import com.example.motelroom.ui.main.LoginFragment;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -101,7 +107,6 @@ public class UserInfoActivity extends AppCompatActivity {
         String name = txt_NameUserInfo.getText().toString().trim();
         StringRequest request= new StringRequest(Request.Method.POST, Constant.SAVE_USER_INFO, response -> {
             try {
-                System.out.println(response);
                 JSONObject object = new JSONObject(response);
                 if(object.getBoolean("success")){
                     //code
@@ -109,6 +114,8 @@ public class UserInfoActivity extends AppCompatActivity {
                     editor.putString("avatar", object.getString("avatar"));
                     editor.putString("name", object.getString("name"));
                     editor.apply();
+
+                    //move
                     startActivity(new Intent(UserInfoActivity.this, MainActivity.class));
                     finish();
                 }
