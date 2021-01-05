@@ -5,6 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.PhongTroFragment">
 
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <TextView
         android:id="@+id/txt_title_nhanguyencan"
         android:layout_width="wrap_content"
@@ -16,10 +20,12 @@
         android:text="Phòng trọ cho thuê" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_margin="15dp"
         android:id="@+id/recyclerPhongtroChoThue"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </androidx.recyclerview.widget.RecyclerView>
+</LinearLayout>
 
 
 </FrameLayout>
