@@ -98,9 +98,12 @@
             android:layout_marginTop="12dp">
 
             <ImageButton
+                android:background="@android:color/transparent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btnPostView"
+                android:tint="@color/black"
+
                 android:layout_marginRight="12dp"
                 android:src="@drawable/ic_baseline_remove_red_eye_24"/>
             <TextView
@@ -108,9 +111,10 @@
                 android:layout_height="wrap_content"
                 android:text="11 view"
                 android:textStyle="bold"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="2dp"
                 android:id="@+id/txtPostView"
                 android:textSize="13dp"
+
                 android:textColor="@color/black"/>
         </LinearLayout>
     </LinearLayout>

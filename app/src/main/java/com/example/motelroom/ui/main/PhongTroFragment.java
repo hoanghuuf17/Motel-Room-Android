@@ -88,7 +88,7 @@ public class PhongTroFragment extends Fragment {
                         post.setId(postObject.getInt("id"));
                         post.setUser(user);
                         post.setView(postObject.getInt("count_view"));
-                        post.setDate(postObject.getString("created_at"));
+                        post.setDate(postObject.getString("time"));
                         post.setAddr(postObject.getString("address"));
                         post.setPhoto(postObject.getString("images"));
                         post.setTitle(postObject.getString("title"));

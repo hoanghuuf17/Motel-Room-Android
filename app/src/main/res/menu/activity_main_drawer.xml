@@ -32,6 +32,10 @@
             android:id="@+id/nav_chung_cu"
             android:icon="@drawable/ic_baseline_home_work_24"
             android:title="@string/menu_chungcu" />
+        <item
+            android:id="@+id/nav_dang_tin"
+            android:icon="@drawable/ic_baseline_post_add_24"
+            android:title="Đăng tin" />
 <!--        <item-->
 <!--            android:id="@+id/nav_gallery"-->
 <!--            android:icon="@drawable/ic_menu_gallery"-->
