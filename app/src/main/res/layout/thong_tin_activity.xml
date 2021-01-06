@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:clickable="true"
+    android:focusable="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:paddingLeft="6dp"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/txtPostDate"
+                    android:textColor="#99272727"
+                    android:text="Jan 1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"/>
+               <TextView
+                   android:layout_marginLeft="170dp"
+                   android:id="@+id/txtEditThongTin"
+                   android:text="Sửa tin"
+                   android:textColor="@color/design_default_color_primary"
+                   android:textSize="18sp"
+                   android:textStyle="bold"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:textSize="18sp"
+                    android:id="@+id/txtDeleteThongTin"
+                    android:textColor="#ED143C"
+                    android:text="Xóa tin"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/txtPostTittle"
+            android:textColor="@color/black"
+            android:text="Cho thuê trọ ở đường Cù Chính Lan đi vào 5m"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/txtPostPrice"
+            android:textColor="#F82E1F"
+            android:text="1.500.000"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/txtPostAddr"
+            android:textColor="#757575"
+            android:text="Địa chỉ"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"/>
+
+        <ImageView
+            android:adjustViewBounds="true"
+            android:id="@+id/imgPostPhoto"
+            android:src="@color/design_default_color_primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="12dp">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnPostView"
+                android:layout_marginRight="12dp"
+                android:src="@drawable/ic_baseline_remove_red_eye_24"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="11 view"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp"
+                android:id="@+id/txtPostView"
+                android:textSize="13dp"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray"/>
+
+
+</androidx.cardview.widget.CardView>
