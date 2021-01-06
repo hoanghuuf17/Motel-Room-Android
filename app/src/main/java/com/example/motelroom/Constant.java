@@ -13,6 +13,4 @@ public class Constant {
     public static final String POSTS = HOME+"/posts";
     public static final String CATEGOTY = HOME+"/category/";
     public static final String MOTELROOMS = HOME+"/add_post";
-
-
 }
