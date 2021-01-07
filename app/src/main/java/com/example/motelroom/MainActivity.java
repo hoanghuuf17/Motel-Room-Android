@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.Toast;
@@ -31,6 +32,7 @@ import androidx.appcompat.widget.Toolbar;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
+        sharedPreferences = getApplicationContext().getSharedPreferences("user", Context.MODE_PRIVATE);
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
                 .setDrawerLayout(drawer)
@@ -55,9 +58,21 @@ public class MainActivity extends AppCompatActivity {
                 boolean isLoggedIn = userPref.getBoolean("isLoggedIn", false);
 
                 if (isLoggedIn){
+                    System.out.println("logged");
+                    Menu menu = navigationView.getMenu();
+                    menu.findItem(R.id.nav_dang_tin).setVisible(true);
+                    menu.findItem(R.id.nav_thong_tin).setVisible(true);
+                    menu.findItem(R.id.nav_login).setVisible(false);
+                    menu.findItem(R.id.nav_register).setVisible(false);
                 }
                 else{
+                    System.out.println("first time");
                     isFirstTime();
+                    Menu menu = navigationView.getMenu();
+                    menu.findItem(R.id.nav_dang_tin).setVisible(false);
+                    menu.findItem(R.id.nav_thong_tin).setVisible(false);
+                    menu.findItem(R.id.nav_login).setVisible(true);
+                    menu.findItem(R.id.nav_register).setVisible(true);
                 }
                 isFirstTime();
             }
@@ -83,6 +98,24 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_logout:{
+                String name = sharedPreferences.getString("name", null);
+                if(name != null){
+                    sharedPreferences.edit().clear().commit();
+                    Toast.makeText(this, "Đăng xuất thành công, tạm biệt: "+name, Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(this, "Bạn chưa đăng nhập!!", Toast.LENGTH_SHORT).show();
+                }
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
