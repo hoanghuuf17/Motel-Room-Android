@@ -9,6 +9,10 @@
             android:icon="@drawable/ic_baseline_add_to_home_screen_24"
             android:title="@string/menu_home" />
         <item
+            android:id="@+id/nav_thong_tin"
+            android:icon="@drawable/ic_baseline_assignment_ind_24"
+            android:title="Thông tin tài khoản" />
+        <item
             android:id="@+id/nav_login"
             android:icon="@drawable/ic_baseline_login_24"
             android:title="@string/menu_login" />
@@ -33,10 +37,9 @@
             android:icon="@drawable/ic_baseline_home_work_24"
             android:title="@string/menu_chungcu" />
         <item
-            android:id="@+id/nav_thong_tin"
-            android:icon="@drawable/user"
-            android:title="Thông tin tài khoản" />
-
+            android:id="@+id/nav_dang_tin"
+            android:icon="@drawable/ic_baseline_post_add_24"
+            android:title="Đăng tin" />
 <!--        <item-->
 <!--            android:id="@+id/nav_gallery"-->
 <!--            android:icon="@drawable/ic_menu_gallery"-->

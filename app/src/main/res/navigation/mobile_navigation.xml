@@ -64,4 +64,9 @@
         android:name="com.example.motelroom.ui.main.ChinhSuaHoSoFragment"
         android:label="Chỉnh sửa hồ sơ"
         tools:layout="@layout/chinh_sua_ho_so_fragment" />
+    <fragment
+        android:id="@+id/nav_dang_tin"
+        android:name="com.example.motelroom.ui.main.DangTinFragment"
+        android:label="Nhà nguyên căn"
+        tools:layout="@layout/dang_tin_fragment" />
 </navigation>
