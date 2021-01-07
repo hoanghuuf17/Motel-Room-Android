@@ -12,5 +12,6 @@ public class Constant {
     public static final String SAVE_USER_INFO = HOME+"/save_user_info";
     public static final String POSTS = HOME+"/posts";
     public static final String CATEGOTY = HOME+"/category/";
-
+    public static final String INFORUSER = HOME+"/user/";
+    public static final String DELETE = HOME+"/delete/";
 }

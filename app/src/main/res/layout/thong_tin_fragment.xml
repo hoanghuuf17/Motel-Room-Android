@@ -1,61 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.ThongTinFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ui.main.ThongTinFragment">
 
     <LinearLayout
-        android:gravity="center"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="330dp"
-        android:layout_marginRight="5dp"
-        android:layout_width="50dp"
-        android:layout_height="50dp">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:src="@drawable/pencil_one"
-            android:id="@+id/circle_edit_frThongTin"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="35dp"
-            android:layout_height="35dp"/>
-    </LinearLayout>
-
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:src="@color/teal_700"
-        android:id="@+id/circle_avatar_frThongTin"
         android:layout_gravity="center_horizontal"
-        android:layout_width="150dp"
-        android:layout_height="150dp"/>
-
-    <TextView
-        android:textSize="30sp"
-        android:id="@+id/txt_nguoidung_frthongtin"
-        android:layout_marginBottom="20dp"
-        android:gravity="center_horizontal"
-        android:text="Tên Người Dùng"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <LinearLayout
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_marginLeft="15dp"
-            android:text="Bài đăng gần đây"
-            android:textSize="20sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="20dp"
-        android:id="@+id/recyclerThongTin"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    </androidx.recyclerview.widget.RecyclerView>
-</LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:layout_marginLeft="330dp"
+            android:layout_marginRight="5dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:src="@drawable/edit"
+                android:id="@+id/img_edit_thongtin"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="35dp"
+                android:layout_height="35dp"/>
+        </LinearLayout>
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:src="@color/teal_700"
+            android:id="@+id/circle_avatar_frThongTin"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="150dp"
+            android:layout_height="150dp"/>
+
+
+
+        <TextView
+            android:layout_marginTop="8dp"
+            android:textSize="25sp"
+            android:id="@+id/txt_infor_name"
+            android:gravity="center_horizontal"
+            android:text="Tên Người Dùng"
+            android:textColor="#000000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_marginRight="20dp"
+                android:src="@drawable/phone_call_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/txt_phonenumber_thongtin"
+                android:text="0900565654"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_marginRight="20dp"
+                android:src="@drawable/mail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/txt_email_thongtin"
+                android:text="example@gamil.com"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:text="Bài đăng gần đây"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:id="@+id/recyclerThongTin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+
+    </ScrollView>
