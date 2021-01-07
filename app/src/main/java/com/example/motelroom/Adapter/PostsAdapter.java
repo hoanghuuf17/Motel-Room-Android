@@ -1,6 +1,7 @@
 package com.example.motelroom.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.motelroom.Constant;
+import com.example.motelroom.DetailPost;
 import com.example.motelroom.Model.Post;
 import com.example.motelroom.R;
 import com.squareup.picasso.Picasso;
@@ -47,7 +49,15 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.PostsHolder>
         holder.txtPrice.setText(post.getPrice());
         holder.txtAddr.setText(post.getAddr());
         holder.txtView.setText(post.getView()+"views");
+
+        holder.imgPost.setOnClickListener(v->{
+            Intent intent = new Intent().setClass(v.getContext(), DetailPost.class);
+            intent.putExtra("postId", post.getId());
+            intent.putExtra("position", position);
+            context.startActivity(intent);
+        });
     }
+
 
     @Override
     public int getItemCount() {
@@ -71,7 +81,6 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.PostsHolder>
             txtView = itemView.findViewById(R.id.txtPostView);
             imgProfile = itemView.findViewById(R.id.imgPostProfile);
             imgPost = itemView.findViewById(R.id.imgPostPhoto);
-
         }
     }
 }

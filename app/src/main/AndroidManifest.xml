@@ -4,7 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +15,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MotelRoom"
         android:usesCleartextTraffic="true">
-        <activity android:name=".UserInfoActivity"></activity>
+        <activity android:name=".DetailPost"></activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/map_key" />
+
+        <activity android:name=".UserInfoActivity" />
         <activity android:name=".Register" />
         <activity android:name=".Login" />
         <activity
