@@ -8,11 +8,13 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 
@@ -34,15 +36,14 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ChinhSuaHoSoActivity extends Activity {
 
-    private static final int GALLERY_AND_PROFILE = 1;
-    private TextView txt_SelectPhoto_Edit;
+    private ImageView imageView;
     private EditText edt_tennguoidung, edt_matkhau, edt_nhaplaimatkhau;
     private Button btnChinhSua;
+    private CircleImageView circleImageView;
+    private static final int GALLERY_AND_PROFILE = 1;
     private Bitmap bitmap = null;
     private SharedPreferences userEdit;
     private ProgressDialog dialog;
-    private CircleImageView circleImageView;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -52,13 +53,14 @@ public class ChinhSuaHoSoActivity extends Activity {
     }
 
     private void init() {
-        txt_SelectPhoto_Edit = findViewById(R.id.txtSelectPhoto_Edit);
+        circleImageView = findViewById(R.id.circle_Fr_Chinh_Sua);
+        imageView = findViewById(R.id.change_phto_chinhsua);
         edt_tennguoidung = findViewById(R.id.edt_EditTenHienThi);
         edt_matkhau = findViewById(R.id.edt_EditMatkhau);
         edt_nhaplaimatkhau = findViewById(R.id.edt_EditMatkhau);
 
 
-        txt_SelectPhoto_Edit.setOnClickListener(new View.OnClickListener() {
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 System.out.println("ok");
@@ -76,7 +78,62 @@ public class ChinhSuaHoSoActivity extends Activity {
                 }
             }
         });
-    }
+        edt_matkhau.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (edt_matkhau.getText().toString().length() < 7) {
+                    edt_matkhau.setError("Mật khẩu phải từ 8 kí tự");
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+        edt_nhaplaimatkhau.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (!edt_nhaplaimatkhau.getText().toString().equals(edt_matkhau.getText().toString())) {
+                    edt_nhaplaimatkhau.setError("Mật khẩu không khớp");
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+        edt_tennguoidung.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (edt_tennguoidung.getText().toString().isEmpty()) {
+                    edt_tennguoidung.setError("Nhập tên người dùng");
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        }
 
 
     @Override
@@ -139,6 +196,8 @@ public class ChinhSuaHoSoActivity extends Activity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 HashMap<String, String> map = new HashMap<>();
                 map.put("name", name);
+                map.put("password", matkhau);
+                map.put("repassword", nhaplaimk);
                 map.put("avatar",bitmapToString(bitmap));
                 return map;
             }
@@ -156,6 +215,7 @@ public class ChinhSuaHoSoActivity extends Activity {
         RequestQueue queue = Volley.newRequestQueue(ChinhSuaHoSoActivity.this);
         queue.add(request);
     }
+
 
     private boolean validate() {
         if (edt_tennguoidung.getText().toString().isEmpty()) {
