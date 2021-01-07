@@ -108,6 +108,9 @@
             android:text="Có thể bạn quan tâm" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
             android:id="@+id/recyclerHome"
             android:layout_width="match_parent"
             android:layout_height="match_parent">

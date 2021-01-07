@@ -1,20 +1,10 @@
 package com.example.motelroom.ui.main;
 
-import androidx.fragment.app.FragmentManager;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,21 +13,24 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.ViewModelProvider;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.motelroom.Constant;
-import com.example.motelroom.MainActivity;
 import com.example.motelroom.R;
 import com.example.motelroom.ui.home.HomeFragment;
-import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -153,9 +146,11 @@ public class LoginFragment extends Fragment {
                     SharedPreferences userPref = getActivity().getApplicationContext().getSharedPreferences("user",getContext().MODE_PRIVATE);
                     SharedPreferences.Editor editor = userPref.edit();
                     editor.putString("token", object.getString("token"));
+                    editor.putInt("id", user.getInt("id"));
                     editor.putString("name", user.getString("name"));
                     editor.putString("email", user.getString("email"));
                     editor.putString("avatar", user.getString("avatar"));
+                    editor.putString("phone", user.getString("phone"));
                     editor.putBoolean("isLoggedIn", true);
                     editor.apply();
                     //if success
