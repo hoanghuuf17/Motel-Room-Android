@@ -45,7 +45,7 @@ public class DetailPost extends FragmentActivity implements OnMapReadyCallback {
     private int position = 0, id = 0;
     private CircleImageView imgProfileDetail;
     private TextView txtNameDetail, txtJoinDateDetail, txtTitleDetail, txtPriceDetail, txtViewDetail, txtDateDetail
-            ,txtAddressDetail, txtAreaDetail, txtUtilitiesDetail, txtDescDetail;
+            ,txtAddressDetail, txtAreaDetail, txtUtilitiesDetail, txtDescDetail, txtPhoneDetail;
     private ImageView imgReportDetail, imgImageDetail;
     public int status;
     public String ip;
@@ -78,6 +78,7 @@ public class DetailPost extends FragmentActivity implements OnMapReadyCallback {
         txtAreaDetail = findViewById(R.id.txtAreaDetail);
         txtUtilitiesDetail = findViewById(R.id.txtUtilitiesDetail);
         txtDescDetail = findViewById(R.id.txtDescDetail);
+        txtPhoneDetail = findViewById(R.id.txtPhoneDetail);
         imgReportDetail = findViewById(R.id.imgReportDetail);
         imgImageDetail = findViewById(R.id.imgImageDetail);
         dialog = new ProgressDialog(this);
@@ -141,6 +142,7 @@ public class DetailPost extends FragmentActivity implements OnMapReadyCallback {
                     txtAreaDetail.setText(roomObject.getString("area"));
                     txtUtilitiesDetail.setText(roomObject.getString("utilities"));
                     txtDescDetail.setText(roomObject.getString("description"));
+                    txtPhoneDetail.setText(roomObject.getString("phone"));
                     Picasso.get().load(Constant.URL+"uploads/images/"+roomObject.getString("images")).placeholder(R.drawable.user).into(imgImageDetail);
                     Picasso.get().load(Constant.URL+"uploads/avatars/"+userObject.getString("avatar")).placeholder(R.drawable.user).into(imgProfileDetail);
                     System.out.println("okey");
