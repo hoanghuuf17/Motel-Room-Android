@@ -138,14 +138,13 @@ public class ChinhSuaHoSoFragment extends Fragment {
     private void updateUser() {
         dialog.setMessage("Đang lưu");
         dialog.show();
-        StringRequest request= new StringRequest(Request.Method.POST, Constant.SAVE_USER_INFO, response -> {
+        StringRequest request= new StringRequest(Request.Method.POST, Constant.UPDATEUSER, response -> {
             try {
                 JSONObject object = new JSONObject(response);
                 if(object.getBoolean("success")){
                     //code
                     SharedPreferences.Editor editor = userPref.edit();
-                    editor.putString("avat" +
-                            "ar", object.getString("avatar"));
+                    editor.putString("avatar", object.getString("avatar"));
                     editor.putString("name", object.getString("name"));
                     editor.apply();
 
