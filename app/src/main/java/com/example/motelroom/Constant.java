@@ -1,7 +1,7 @@
 package com.example.motelroom;
 
 public class Constant {
-    public static final String URL = "http://192.168.1.6:8000/";
+    public static final String URL = "http://192.168.1.5:8000/";
     public static final String HOME = URL+"api";
     public static final String LOGIN = HOME+"/login";
     public static final String REGISTER = HOME+"/register";
@@ -17,4 +17,5 @@ public class Constant {
     public static final String INFORUSER = HOME+"/user/";
     public static final String DELETE = HOME+"/delete/";
     public static final String REPORT = HOME+"/rp/";
+    public static final String UPDATEUSER = HOME+"/updateuser";
 }

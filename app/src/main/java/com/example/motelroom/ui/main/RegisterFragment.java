@@ -3,6 +3,7 @@ package com.example.motelroom.ui.main;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -43,6 +44,9 @@ public class RegisterFragment extends Fragment {
     private EditText edtTaikhoan, edtMatkhau, edtRematkhau, edtEmail;
     private View view;
     private ProgressDialog dialog;
+    private Bitmap bitmap = null;
+    private SharedPreferences userPref;
+
 
     public static RegisterFragment newInstance() {
         return new RegisterFragment();
