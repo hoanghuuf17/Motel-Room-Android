@@ -107,7 +107,7 @@ public class ThongTinFragment extends Fragment {
                     for(int i = 0; i < array.length(); i++){
                         JSONObject postObject = array.getJSONObject(i);
                         JSONObject userObject = postObject.getJSONObject("user");
-
+                        System.out.println("ookokaod");
                         User user = new User();
                         user.setId(userObject.getInt("id"));
                         user.setName(userObject.getString("name"));
