@@ -69,20 +69,11 @@ public class HomeFragment extends Fragment {
     }
 
     private void init() {
-        Button btn_test = view.findViewById(R.id.btn_test);
         sharedPreferences = getContext().getApplicationContext().getSharedPreferences("user", Context.MODE_PRIVATE);
         recyclerView = view.findViewById(R.id.recyclerHome);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         getPosts();
-
-        btn_test.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getActivity(), DetailPost.class));
-            }
-        });
-
     }
 
     private void getPosts() {

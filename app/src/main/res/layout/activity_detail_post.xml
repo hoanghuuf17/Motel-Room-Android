@@ -244,6 +244,28 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:tint="@color/black"
+            android:background="@android:color/transparent"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_baseline_phone_in_talk_24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/txtPhoneDetail"
+            android:textColor="#4CAF50"
+            android:textSize="16sp"
+            android:layout_margin="10dp"
+            android:text="Phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
     <TextView
         android:textColor="@color/black"
         android:textSize="17sp"
