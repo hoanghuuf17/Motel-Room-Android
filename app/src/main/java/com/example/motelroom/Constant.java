@@ -14,4 +14,6 @@ public class Constant {
     public static final String CATEGOTY = HOME+"/category/";
     public static final String INFORUSER = HOME+"/user/";
     public static final String DELETE = HOME+"/delete/";
+    public static final String MOTELROOMS = HOME+"/add_post/";
+    public static final String DETAILROOM = HOME+"/detailroom/";
 }
