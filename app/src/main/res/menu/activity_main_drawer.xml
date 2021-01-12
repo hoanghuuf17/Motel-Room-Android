@@ -7,7 +7,7 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_baseline_add_to_home_screen_24"
-            android:title="@string/menu_home" />
+            android:title="Trang chủ" />
         <item
             android:id="@+id/nav_thong_tin"
             android:icon="@drawable/ic_baseline_assignment_ind_24"
