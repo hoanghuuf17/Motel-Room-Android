@@ -1,24 +1,18 @@
 package com.example.motelroom.ui.home;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -29,12 +23,13 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.motelroom.Adapter.PostsAdapter;
 import com.example.motelroom.Constant;
-import com.example.motelroom.DetailPost;
-import com.example.motelroom.MainActivity;
 import com.example.motelroom.Model.Post;
 import com.example.motelroom.Model.User;
 import com.example.motelroom.R;
-import com.example.motelroom.UserInfoActivity;
+import com.example.motelroom.ui.main.ChungCuFragment;
+import com.example.motelroom.ui.main.NhaNguyenCanFragment;
+import com.example.motelroom.ui.main.OGhepFragment;
+import com.example.motelroom.ui.main.PhongTroFragment;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -49,7 +44,7 @@ public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     private View view;
-    private ImageView imageView;
+    private ImageView imageView, imageView_nhanguyencan, imageView_oghep, imageView_chungcu, imageView_phongtro;
     private RecyclerView recyclerView;
     private ArrayList<Post> arrayList;
     private PostsAdapter postsAdapter;
@@ -74,6 +69,47 @@ public class HomeFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         getPosts();
+
+        imageView_chungcu= view.findViewById(R.id.imgview_chungcu);
+        imageView_nhanguyencan= view.findViewById(R.id.imgview_nhanguyencan);
+        imageView_oghep= view.findViewById(R.id.imgview_oghep);
+        imageView_phongtro= view.findViewById(R.id.imgview_phongtro);
+
+        imageView_nhanguyencan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment NhaNguyenCan = new NhaNguyenCanFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, NhaNguyenCan).commit();
+            }
+        });
+
+        imageView_phongtro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment PhongTro = new PhongTroFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, PhongTro).commit();
+            }
+        });
+
+        imageView_chungcu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment ChungCu = new ChungCuFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, ChungCu).commit();
+            }
+        });
+
+        imageView_oghep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment OGhep = new OGhepFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, OGhep).commit();
+            }
+        });
     }
 
     private void getPosts() {

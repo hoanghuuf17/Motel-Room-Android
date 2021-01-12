@@ -1,22 +1,20 @@
 package com.example.motelroom.ui.main;
 
-import androidx.fragment.app.FragmentManager;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -41,7 +39,7 @@ public class NhaNguyenCanFragment extends Fragment {
 
     private NhaNguyenCanViewModel mViewModel;
     private View view;
-    private ImageView imageView;
+    private ImageView imageView, imageView_nhanguyencan, imageView_oghep, imageView_chungcu, imageView_phongtro;
     private RecyclerView recyclerView;
     private ArrayList<Post> arrayList;
     private PostsAdapter postsAdapter;
@@ -66,6 +64,47 @@ public class NhaNguyenCanFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         getCategorys();
+
+        imageView_chungcu= view.findViewById(R.id.imgview_chungcu);
+        imageView_nhanguyencan= view.findViewById(R.id.imgview_nhanguyencan);
+        imageView_oghep= view.findViewById(R.id.imgview_oghep);
+        imageView_phongtro= view.findViewById(R.id.imgview_phongtro);
+
+        imageView_nhanguyencan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment NhaNguyenCan = new NhaNguyenCanFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, NhaNguyenCan).commit();
+            }
+        });
+
+        imageView_phongtro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment PhongTro = new PhongTroFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, PhongTro).commit();
+            }
+        });
+
+        imageView_chungcu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment ChungCu = new ChungCuFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, ChungCu).commit();
+            }
+        });
+
+        imageView_oghep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment OGhep = new OGhepFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, OGhep).commit();
+            }
+        });
     }
 
     private void getCategorys() {
