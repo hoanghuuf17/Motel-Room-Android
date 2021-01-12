@@ -17,6 +17,12 @@
         android:duration="1300"
         android:fromAlpha="1.0"
         android:toAlpha="0.0"
-        android:drawable="@drawable/img3"
+        android:drawable="@drawable/img4"
+        />
+    <item
+        android:duration="1300"
+        android:fromAlpha="1.0"
+        android:toAlpha="0.0"
+        android:drawable="@drawable/img5"
         />
 </animation-list>
