@@ -138,7 +138,7 @@ public class ChinhSuaHoSoFragment extends Fragment {
     private void updateUser() {
         dialog.setMessage("Đang lưu");
         dialog.show();
-        StringRequest request= new StringRequest(Request.Method.POST, Constant.UPDATEUSER, response -> {
+        StringRequest request= new StringRequest(Request.Method.PUT, Constant.UPDATEUSER, response -> {
             try {
                 JSONObject object = new JSONObject(response);
                 if(object.getBoolean("success")){
