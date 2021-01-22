@@ -1,6 +1,7 @@
 package com.example.motelroom.ui.main;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
@@ -25,6 +26,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.motelroom.Constant;
+import com.example.motelroom.MainActivity;
 import com.example.motelroom.R;
 import com.example.motelroom.ui.home.HomeFragment;
 
@@ -156,9 +158,11 @@ public class LoginFragment extends Fragment {
                     //if success
 
                     //move
-                    Fragment homeFragment = new HomeFragment();
-                    FragmentManager fragmentManager = getFragmentManager();
-                    fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, homeFragment).commit();
+//                    Fragment homeFragment = new HomeFragment();
+//                    FragmentManager fragmentManager = getFragmentManager();
+//                    fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, homeFragment).detach(this).attach(this).commit();
+                    Intent myIntent = new Intent(getActivity(), MainActivity.class);
+                    getActivity().startActivity(myIntent);
 
                     Toast.makeText(getContext(), "Login Success", Toast.LENGTH_SHORT).show();
                 }

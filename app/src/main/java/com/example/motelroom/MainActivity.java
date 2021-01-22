@@ -108,6 +108,11 @@ public class MainActivity extends AppCompatActivity {
                 if(name != null){
                     sharedPreferences.edit().clear().commit();
                     Toast.makeText(this, "Đăng xuất thành công, tạm biệt: "+name, Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(MainActivity.this, MainActivity.class);
+                    finish();
+                    overridePendingTransition(0, 0);
+                    startActivity(i);
+                    overridePendingTransition(0, 0);
                 }
                 else{
                     Toast.makeText(this, "Bạn chưa đăng nhập!!", Toast.LENGTH_SHORT).show();
