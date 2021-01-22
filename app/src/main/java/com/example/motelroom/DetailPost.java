@@ -7,7 +7,9 @@ import androidx.fragment.app.FragmentManager;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
@@ -92,6 +94,8 @@ public class DetailPost extends FragmentActivity implements OnMapReadyCallback {
 
         Toast.makeText(this, "ok "+id, Toast.LENGTH_SHORT).show();
 
+
+
         imgReportDetail.setOnClickListener(v->{
             PopupMenu popupMenu = new PopupMenu(this, imgReportDetail);
             popupMenu.inflate(R.menu.menu_report_option);
@@ -143,6 +147,11 @@ public class DetailPost extends FragmentActivity implements OnMapReadyCallback {
                     txtUtilitiesDetail.setText(roomObject.getString("utilities"));
                     txtDescDetail.setText(roomObject.getString("description"));
                     txtPhoneDetail.setText(roomObject.getString("phone"));
+                    String phone = roomObject.getString("phone");
+                    txtPhoneDetail.setOnClickListener(v->{
+                        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
+                        startActivity(intent);
+                    });
                     Picasso.get().load(Constant.URL+"uploads/images/"+roomObject.getString("images")).placeholder(R.drawable.user).into(imgImageDetail);
                     Picasso.get().load(Constant.URL+"uploads/avatars/"+userObject.getString("avatar")).placeholder(R.drawable.user).into(imgProfileDetail);
                     System.out.println("okey");
